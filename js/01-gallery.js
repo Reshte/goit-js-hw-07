@@ -21,19 +21,23 @@ const markup = galleryItems
 divEl.insertAdjacentHTML("beforeend", markup);
 
 divEl.addEventListener("click", onImgClick);
-let modalImg;
+
+let modalImg = basicLightbox.create("");
 
 function onImgClick(evt) {
   evt.preventDefault();
   let urlImg = evt.target.dataset.source;
   modalImg = basicLightbox.create(`
-    <img class="modal__image" src="${urlImg}" width="800" height="600">
-`);
+      <img class="modal__image" src="${urlImg}" width="800" height="600">
+  `);
+
   modalImg.show();
 }
 
-// modalImgEl.addEventListener("keydown", onImgEscape);
+modalImgEl.addEventListener("keydown", onImgEscape);
 
-// function onImgEscape(evt) {}
+function onImgEscape(evt) {
+  modalImg.close();
+}
 
-// modalImg.close()
+// onClose: (instance) => {};

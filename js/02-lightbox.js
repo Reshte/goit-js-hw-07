@@ -1,7 +1,7 @@
 import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
-console.log(galleryItems);
+// console.log(galleryItems);
 
 const divEl = document.querySelector(".gallery");
 
@@ -14,3 +14,12 @@ const markup = galleryItems
   .join("");
 
 divEl.insertAdjacentHTML("beforeend", markup);
+
+let gallery = new SimpleLightbox(".gallery a");
+gallery.on("shown.simplelightbox", function () {});
+
+gallery.on("error.simplelightbox", function (e) {
+  console.log(e); // some usefull information
+});
+
+gallery.overlay;
