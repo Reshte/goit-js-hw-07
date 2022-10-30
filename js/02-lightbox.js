@@ -15,11 +15,8 @@ const markup = galleryItems
 
 divEl.insertAdjacentHTML("beforeend", markup);
 
-let gallery = new SimpleLightbox(".gallery a");
-gallery.on("shown.simplelightbox", function () {});
-
-gallery.on("error.simplelightbox", function (e) {
-  console.log(e); // some usefull information
+let gallery = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+  overlayOpacity: 0.5,
 });
-
-gallery.overlay;

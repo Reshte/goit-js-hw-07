@@ -32,12 +32,11 @@ function onImgClick(evt) {
   `);
 
   modalImg.show();
+
+  divEl.addEventListener("keydown", (evt) => {
+    console.log(evt.code);
+    if (evt.code === "Escape") {
+      modalImg.close();
+    }
+  });
 }
-
-modalImgEl.addEventListener("keydown", onImgEscape);
-
-function onImgEscape(evt) {
-  modalImg.close();
-}
-
-// onClose: (instance) => {};
